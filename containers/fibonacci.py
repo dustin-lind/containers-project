@@ -70,7 +70,7 @@ class Fib:
         if self.n is None:
             return 'Fib()'
         else:
-            return 'Fib('+str(self.n)+')'
+            return 'Fib(' + str(self.n) + ')'
 
 
 class FibIter:
