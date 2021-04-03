@@ -116,9 +116,9 @@ class NormalizedStr:
         normalized_self = unicodedata.normalize(self.normal_form,
                                                 str(self.text))
         normalized_b = unicodedata.normalize(self.normal_form, str(b))
+        combined = normalized_self + normalized_b
         normalized_combined = unicodedata.normalize(self.normal_form,
-                                                    normalized_self +
-                                                    normalized_b)
+                                                    combined)
         return NormalizedStr(normalized_combined)
 
     def __iter__(self):
@@ -150,5 +150,5 @@ class NormalizedStrIter:
         '''
         while self.i < self.n:
             self.i += 1
-            return self.text[self.i-1]
+            return self.text[self.i - 1]
         raise StopIteration
