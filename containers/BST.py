@@ -48,6 +48,9 @@ class BST(BinaryTree):
         FIXME:
         Implement this function.
         '''
+        if self.root:
+            return BST._is_bst_satisfied(self.root)
+        return True
 
     @staticmethod
     def _is_bst_satisfied(node):
@@ -111,6 +114,21 @@ class BST(BinaryTree):
         Create a recursive staticmethod helper function,
         similar to how the insert and find functions have recursive helpers.
         '''
+        if self.root is None:
+            raise ValueError('Nothing in tree')
+        else:
+            return BST._find_smallest(self.root)
+    
+    @staticmethod
+    def _find_smallest(node):
+        '''
+        This is the helper function for find_smallest
+        '''
+        assert node is not None
+        if node.left is None:
+            return node.value
+        else:
+            return BST._find_smallest(node.left)
 
     def find_largest(self):
         '''
