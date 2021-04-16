@@ -185,6 +185,13 @@ class BinaryTree():
         '''
         FIXME:
         Implement this function.
+
+        HINT:
+        The pseudocode is:
+        add 1 for the current node;
+        if a left child exists, add the result of __len__helper on the left child;
+        if a right child exists, add the result of __len__helper on the right child;
+        return the sum of these three steps
         '''
         try:
             len_sum += 1
@@ -215,6 +222,12 @@ class BinaryTree():
         '''
         FIXME:
         Implement this function.
+
+        HINT:
+        The pseudocode is:
+        if a left child exists, calculate the _height of the left child;
+        if a right child exists, calculate the _height of the right child;
+        return 1 (for the current node) plus the max of the left and right _heights calculated above
         '''
         try:
             if node.left:
