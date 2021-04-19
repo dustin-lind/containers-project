@@ -58,6 +58,12 @@ class BST(BinaryTree):
         Convert the contents of both trees into a sorted list,
         then compare those sorted lists for equality.
         '''
+        self_inorder = self.to_list('inorder')
+        t2_inorder = t2.to_list('inorder')
+        if len(self_inorder) != len(t2_inorder):
+            return False
+        else:
+            return self_inorder == t2_inorder
 
     def is_bst_satisfied(self):
         '''
@@ -69,8 +75,8 @@ class BST(BinaryTree):
 
         FIXME:
         Implement this function.
-        This makes it possible to automatically test whether insert/delete functions
-        are actually working.
+        This makes it possible to automatically test whether insert/delete
+        functions are actually working.
         '''
         if self.root:
             return BST._is_bst_satisfied(self.root)
@@ -82,12 +88,15 @@ class BST(BinaryTree):
         FIXME:
         Implement this method.
         The current implementation has a bug:
-        it only checks if the children of the current node are less than/greater than,
-        rather than ensuring that all nodes to the left/right are less than/greater than.
+        it only checks if the children of the current node are
+        less than/greater than,
+        rather than ensuring that all nodes to the left/right are
+        less than/greater than.
 
         HINT:
         Use the _find_smallest and _find_largest functions to fix the bug.
-        You should use the _ prefixed methods because those are static methods just like this one.
+        You should use the _ prefixed methods because those are static
+        methods just like this one.
         '''
         ret = True
         if node.left:
@@ -114,7 +123,7 @@ class BST(BinaryTree):
         of _is_bst_satisfied.
         '''
         if self.root:
-            return BST._insert(self.root, value)
+            self._insert(self.root, value)
         else:
             self.root = Node(value)
 
@@ -237,7 +246,8 @@ class BST(BinaryTree):
         Implement this function.
 
         HINT:
-        You should have everything else working before you implement this function.
+        You should have everything else working before
+        you implement this function.
 
         HINT:
         Use a recursive helper function.
