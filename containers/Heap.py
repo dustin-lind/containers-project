@@ -195,7 +195,7 @@ class Heap(BinaryTree):
             num_nodes = self.__len__()
             remove_path = "{0:b}".format(num_nodes)[1:]
             last_val, self.root = Heap._remove_bottom_right(
-                    self.root, remove_path)
+                self.root, remove_path)
             if self.root:
                 self.root.value = last_val
             print(str(self.root))
@@ -217,14 +217,14 @@ class Heap(BinaryTree):
                 node.left = None
             else:
                 deleted_value, node.left = Heap._remove_bottom_right(
-                       node.left, remove_path[1:])
+                    node.left, remove_path[1:])
         if remove_path[0] == '1':
             if len(remove_path) == 1:
                 deleted_value = node.right.value
                 node.right = None
             else:
                 deleted_value, node.right = Heap._remove_bottom_right(
-                        node.right, remove_path[1:])
+                    node.right, remove_path[1:])
         print(deleted_value, str(node))
         return deleted_value, node
 
